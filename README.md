@@ -14,5 +14,6 @@ python3 -m http.server 8000
 Abrir http://localhost:8000/
 
 ## Pendientes
+- Quitar `<meta name="robots" content="noindex">` de `index.html` al publicar en el dominio definitivo.
 - Backend del formulario de contacto (atributo `data-endpoint`).
 - Publicación: Netlify, Vercel o Cloudflare Pages desde este repo; luego dominio `exactlyconsulting.org`.
