@@ -380,7 +380,15 @@ nav.open{background:rgba(9,20,34,.97)}
 }
 /* desktop: portrait runs down to the strip line, no fade over the jacket */
 @media(min-width:901px){.hero-a .cut{-webkit-mask-image:none;mask-image:none}}
-</style></head>
+
+/* hero scroll chevron */
+.hdown{position:absolute;left:50%;bottom:2px;z-index:3;width:44px;height:24px;margin-left:-22px;display:flex;align-items:center;justify-content:center;color:rgba(236,239,243,.75);text-decoration:none;transition:color .2s}
+.hdown:hover,.hdown:focus-visible{color:#fff}
+.hdown svg{animation:hdown 2s ease-in-out infinite}
+@keyframes hdown{0%,100%{transform:translateY(-2px)}50%{transform:translateY(2px)}}
+.js .hdown{opacity:0}.ready .hdown{opacity:1;transition:opacity .9s 1.8s,color .2s}
+@media(prefers-reduced-motion:reduce){.hdown svg{animation:none}.js .hdown{opacity:1}}
+@media(max-width:700px){.hdown{display:none}}</style></head>
 <body>
 <div class="loader" id="loader" aria-hidden="true"><div class="lw">Exactly <i>Consulting</i><span class="lbar"></span></div></div>
 <nav id="nav" aria-label="Main"><div class="wrap">
@@ -403,8 +411,9 @@ nav.open{background:rgba(9,20,34,.97)}
 </div></div>
 <div class="hname"><b>Luis Felipe de Oliveira</b>Former Director General &amp; CEO, ACI World</div>
 <div class="wrap"><div class="hbar"><p>Led and served at</p><div><img src="img/logos/shell.svg" alt="Shell"><img src="img/logos/iata.svg" alt="IATA"><img src="img/logos/wfs.png" alt="World Fuel Services"><img src="img/logos/alta.png" alt="ALTA"><img src="img/logos/aci-world.png" alt="ACI World"></div></div></div>
+<a class="hdown" href="#advisors" aria-label="Scroll down"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></a>
 </header>
-<div class="strip"><div class="wrap adv-row"><p class="adv-l">Senior advisor to</p><ul class="adv"><li><img src="img/logos/bcg.svg" alt="BCG" class="l-bcg"></li><li><img src="img/logos/amadeus.svg" alt="Amadeus" class="l-ama"></li><li><img src="img/logos/exolum.svg" alt="Exolum" class="l-exo"></li><li><img src="img/logos/adb.svg" alt="ADB Safegate" class="l-adb"></li></ul></div></div>
+<div class="strip" id="advisors"><div class="wrap adv-row"><p class="adv-l">Senior advisor to</p><ul class="adv"><li><img src="img/logos/bcg.svg" alt="BCG" class="l-bcg"></li><li><img src="img/logos/amadeus.svg" alt="Amadeus" class="l-ama"></li><li><img src="img/logos/exolum.svg" alt="Exolum" class="l-exo"></li><li><img src="img/logos/adb.svg" alt="ADB Safegate" class="l-adb"></li></ul></div></div>
 
 <section id="career" class="dark"><div class="wrap">
 <div class="intro"><h2 style="max-width:16ch">Thirty years across the whole aviation chain.</h2>
