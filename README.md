@@ -1,6 +1,6 @@
 # Exactly Consulting — sitio web
 
-Sitio estático (HTML/CSS/JS, sin build) de Exactly Consulting, consultora boutique de aviación (Ginebra). Versión v4 aprobada. Idioma del sitio: inglés.
+Sitio estático (HTML/CSS/JS, sin build) de Exactly Consulting, consultora boutique de aviación (Ginebra). Versión v8 (en revisión con el cliente). Idioma del sitio: inglés.
 
 ## Estructura
 - `index.html` — página única.
