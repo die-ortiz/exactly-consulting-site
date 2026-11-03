@@ -780,6 +780,19 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 .hbar img[alt=IATA]{height:62px}.hbar img[alt="ACI World"]{height:58px}.hbar img[alt="World Fuel Services"]{height:54px}.hbar img[alt=ALTA]{height:38px}
 .hbar img:hover{opacity:1}
 @media(max-width:900px){.hbar div{gap:12px}.hbar img{height:28px;max-width:22%}.hbar img[alt=IATA]{height:40px}.hbar img[alt="ACI World"]{height:40px}.hbar img[alt="World Fuel Services"]{height:38px}.hbar img[alt=ALTA]{height:26px}}
+
+/* v9: transicion Career / Projects con el globo cambiando de lado (escritorio) */
+@media(min-width:981px){
+.atlas.pmode{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
+.atlas.pmode .atlas-side{grid-column:2;grid-row:1}
+.atlas.pmode .ppanel{grid-column:1;grid-row:1}
+.atlas.exit-ch .chapters{opacity:0;transform:translateX(70px);transition:opacity .3s ease,transform .33s ease-in}
+.atlas.exit-pp .ppanel{opacity:0;transform:translateX(-70px);transition:opacity .3s ease,transform .33s ease-in}
+.ppanel.enter>*{opacity:0;transform:translateX(-56px)}
+.ppanel.enter.go>*{opacity:1;transform:none;transition:opacity .6s ease,transform .75s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*65ms + .3s)}
+.chapters.enter{opacity:0;transform:translateX(56px)}
+.chapters.enter.go{opacity:1;transform:none;transition:opacity .6s ease .35s,transform .75s cubic-bezier(.2,.7,.2,1) .35s}
+}
 </style></head>
 <body>
 <div class="loader" id="loader" aria-hidden="true"><div class="lw">Exactly <i>Consulting</i><span class="lbar"></span></div></div>
@@ -856,7 +869,7 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 <div class="intro"><h2 style="max-width:16ch">Thirty years across the whole aviation chain.</h2>
 <div><p>From jet fuel supply at Shell, to cutting USD 3.5 billion in airline costs at IATA, to turning around two of the industry’s main associations, Luis Felipe has sat on every side of the table: airline, airport, fuel supplier, regulator and government.</p>
 <p>He builds win-win partnerships with governments, airports, air navigation service providers, oil companies and airline associations, with long-standing relationships at ICAO and across the Americas, the Middle East and Africa.</p></div></div>
-<ul class="logos" aria-label="Organisations he has led or served"><li><a href="#ch0" title="Shell"><img src="img/logos/shell.svg" alt="Shell" onerror="this.outerHTML='<span class=wm>Shell</span>'"></a></li><li><a href="#ch1" title="IATA"><img src="img/logos/iata.svg" alt="IATA" onerror="this.outerHTML='<span class=wm>IATA</span>'"></a></li><li><a href="#ch2" title="World Fuel Services"><img src="img/logos/wfs.svg" alt="World Fuel Services" onerror="this.outerHTML='<span class=wm>World Fuel Services</span>'"></a></li><li><a href="#ch3" title="ALTA"><img src="img/logos/alta.svg" alt="ALTA" onerror="this.outerHTML='<span class=wm>ALTA</span>'"></a></li><li><a href="#ch4" title="ACI World"><img src="img/logos/aci-world.svg" alt="ACI World" onerror="this.outerHTML='<span class=wm>ACI World</span>'"></a></li></ul>
+<ul class="logos" aria-label="Organisations he has led or served"><li><a href="#ch0" title="Shell"><img src="img/logos/shell.svg" alt="Shell" onerror="this.outerHTML='<span class=wm>Shell</span>'"></a></li><li><a href="#ch1" title="IATA"><img src="img/logos/iata.svg" alt="IATA" onerror="this.outerHTML='<span class=wm>IATA</span>'"></a></li><li><a href="#ch2" title="World Fuel Services"><img src="img/logos/wfs.svg" alt="World Fuel Services" onerror="this.outerHTML='<span class=wm>World Fuel Services</span>'"></a></li><li><a href="#ch3" title="ALTA"><img src="img/logos/alta.png" alt="ALTA" onerror="this.outerHTML='<span class=wm>ALTA</span>'"></a></li><li><a href="#ch4" title="ACI World"><img src="img/logos/aci-world.png" alt="ACI World" onerror="this.outerHTML='<span class=wm>ACI World</span>'"></a></li></ul>
 <div class="atlas">
 <div class="atlas-side"><div class="gmode" role="group" aria-label="Globe mode"><button type="button" data-m="career" aria-pressed="true">Career</button><button type="button" data-m="projects" aria-pressed="false">Projects</button></div><div class="atlas-map"><canvas id="globe" role="img" aria-label="Globe showing the cities where Luis Felipe has worked: Brazil, South Africa, the Netherlands, Geneva, Miami, Panama City and Montreal, and the countries of his advisory projects. Drag sideways to rotate."></canvas>
 <ul class="gkey" aria-hidden="true"><li class="k-c">Career</li><li class="k-p">Projects</li></ul>
@@ -1104,14 +1117,27 @@ function startTour(){stopTour()} /* sin recorrido automatico: el globo solo se m
 pfil.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;stopTour();fil=+b.dataset.f;rP();draw(performance.now())});
 preg.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;stopTour();goReg(+b.dataset.r)});
 pcty.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;stopTour();selP(+b.dataset.c,true)});
-function setMode(m){if(m===mode||atl.classList.contains('swap'))return;mb.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===m)});
- function apply(){mode=m;var pm=m==='projects';atl.classList.toggle('pmode',pm);pp.hidden=!pm;
-  if(pm){for(var g=0;g<5;g++)tg[g]=0;var r0=sel>-1?PRJ[sel][1]:0;goReg(r0,0);startTour()}
+var busy=false,sideEl=document.querySelector('.atlas-side'),chWrap=document.querySelector('.chapters');
+[].slice.call(pp.children).forEach(function(el,i){el.style.setProperty('--i',i)});
+function setMode(m){if(m===mode||busy)return;busy=true;mb.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===m)});
+ var desk=matchMedia('(min-width:981px)').matches;
+ function apply(spin){mode=m;var pm=m==='projects';atl.classList.toggle('pmode',pm);pp.hidden=!pm;
+  if(pm){for(var g=0;g<5;g++)tg[g]=0;var r0=sel>-1?PRJ[sel][1]:0;goReg(r0,spin?1100:0);startTour()}
   else{stopTour();cv.classList.remove('pick');var c=cur<0?0:cur;cur=-1;set(c)}
   var y=atl.getBoundingClientRect().top+scrollY-110;if(!pm){var ce=chs[c<0?0:c],cr=ce.getBoundingClientRect();y=cr.top+scrollY+cr.height/2-innerHeight/2}if(Math.abs(scrollY-y)>2)scrollTo({top:y,behavior:'instant'});
   if(!pm)pick();draw(performance.now());gTick()}
- if(rm2){apply();return}
- atl.classList.add('swap');setTimeout(function(){apply();requestAnimationFrame(function(){requestAnimationFrame(function(){atl.classList.remove('swap')})})},260)}
+ if(rm2){apply(false);busy=false;return}
+ if(!desk){atl.classList.add('swap');setTimeout(function(){apply(false);setTimeout(function(){atl.classList.remove('swap');busy=false},40)},260);return}
+ /* escritorio: el globo viaja de lado y el contenido entra desde el lado opuesto */
+ var toP=m==='projects';atl.classList.add(toP?'exit-ch':'exit-pp');
+ setTimeout(function(){
+  var f=sideEl.getBoundingClientRect();
+  apply(true);atl.classList.remove('exit-ch','exit-pp');
+  var l=sideEl.getBoundingClientRect(),dx=f.left-l.left,dy=f.top-l.top;
+  if(sideEl.animate)sideEl.animate([{transform:'translate('+dx+'px,'+dy+'px) scale(1)'},{transform:'translate('+(dx*.45)+'px,'+(dy*.45)+'px) scale(.9)',offset:.5},{transform:'translate(0,0) scale(1)'}],{duration:950,easing:'cubic-bezier(.65,0,.35,1)'});
+  var tgt=toP?pp:chWrap;tgt.classList.add('enter');
+  setTimeout(function(){tgt.classList.add('go')},40);
+  setTimeout(function(){tgt.classList.remove('enter','go');busy=false},1400)},330)}
 mb.forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.m)})});
 rP();
 var tk=false;
