@@ -797,6 +797,14 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 /* v9: avatar del formulario con aire sobre la cabeza */
 .who .av{position:relative;display:block;overflow:hidden;object-fit:initial}
 .who .av img{position:absolute;width:150%;max-width:none;height:auto;left:-25%;top:12%}
+
+/* v9: quinta tarjeta (Gallagher), logo provisorio en texto */
+.adv-cards{grid-template-columns:repeat(5,minmax(0,1fr))}
+.adv-cards .wm-g{display:flex;align-items:center;height:44px;font:600 1.7rem/1 var(--sans);letter-spacing:-.01em;color:#fff;opacity:.72;transition:opacity .3s}
+.adv-cards li:hover .wm-g{opacity:1}
+@media(max-width:1100px){.adv-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.adv-cards{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.adv-cards{grid-template-columns:1fr}}
 </style></head>
 <body>
 <div class="loader" id="loader" aria-hidden="true"><div class="lw">Exactly <i>Consulting</i><span class="lbar"></span></div></div>
@@ -907,14 +915,15 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 </div>
 <section id="boards"><div class="wrap">
 <div class="bhead"><div><p class="eye">Advisory &amp; governance</p><h2>Trusted by the industry’s leaders.</h2>
-<p class="lede">Senior advisory and governance roles across consulting, technology, fuel and airport systems.</p></div>
-<ul class="bstats"><li><b>7</b><span>current senior advisory and board roles</span></li><li><b>4</b><span>sectors: consulting, technology, fuel and airport systems</span></li></ul></div>
+<p class="lede">Senior advisory and governance roles across consulting, technology, fuel, insurance and airport systems.</p></div>
+<ul class="bstats"><li><b>8</b><span>current senior advisory and board roles</span></li><li><b>5</b><span>sectors: consulting, technology, fuel, insurance and airport systems</span></li></ul></div>
 <h3 class="bsub">Senior advisor</h3>
 <ul class="adv-cards">
 <li class="feat"><img src="img/logos/adb.svg" alt="ADB Safegate" class="l-adb"><span class="tag">Co-chair, Advisory Board</span><p>Shaping the future aviation regulatory framework for new technologies.</p></li>
 <li><img src="img/logos/bcg.svg" alt="BCG" class="l-bcg"><span class="tag">Senior advisor</span><p>Transport, cities and infrastructure projects.</p></li>
 <li><img src="img/logos/amadeus.svg" alt="Amadeus" class="l-ama"><span class="tag">Senior advisor</span><p>Airports and the full travel journey.</p></li>
 <li><img src="img/logos/exolum.svg" alt="Exolum" class="l-exo"><span class="tag">Senior advisor</span><p>Fuel infrastructure for aviation.</p></li>
+<li><span class="wm-g" role="img" aria-label="Gallagher">Gallagher</span><span class="tag">Senior advisor</span><p>Insurance, risk and resilience for aviation.</p></li>
 </ul>
 <h3 class="bsub">Boards &amp; advisory boards</h3>
 <ul class="blist">
