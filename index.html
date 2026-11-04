@@ -805,6 +805,17 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 @media(max-width:1100px){.adv-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:760px){.adv-cards{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.adv-cards{grid-template-columns:1fr}}
+
+/* v9: Gallagher en la franja "Senior advisor to" (logo provisorio en texto) */
+@media(min-width:901px){.strip .adv{grid-template-columns:repeat(5,1fr)}}
+.strip .adv .wm-g2{font:600 1.75rem/1 var(--sans);letter-spacing:-.01em;color:#fff;opacity:.66;transition:opacity .25s}
+.strip .adv li:hover .wm-g2{opacity:1}
+@media(max-width:900px){.strip .adv li:nth-child(4){border-bottom:1px solid var(--line-d)}.strip .adv li:nth-child(5){grid-column:1/-1;border-right:0}.strip .adv .wm-g2{font-size:1.4rem}}
+
+/* v9: logo real de Gallagher */
+.adv-cards .l-gal{height:28px;max-width:170px}
+.strip .adv .l-gal{height:36px;max-width:90%}
+@media(max-width:900px){.strip .adv .l-gal{height:28px}}
 </style></head>
 <body>
 <div class="loader" id="loader" aria-hidden="true"><div class="lw">Exactly <i>Consulting</i><span class="lbar"></span></div></div>
@@ -829,7 +840,7 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 <div class="hname"><b>Luis Felipe de Oliveira</b>Former Director General &amp; CEO, ACI World</div>
 <div class="wrap"><div class="hbar"><p>Led and served at</p><div><img src="img/logos/shell.svg" alt="Shell"><img src="img/logos/iata.svg" alt="IATA"><img src="img/logos/wfs.svg" alt="World Fuel Services"><img src="img/logos/alta.png" alt="ALTA"><img src="img/logos/aci-world.png" alt="ACI World"></div></div></div>
 </header>
-<div class="strip"><div class="wrap adv-row"><p class="adv-l">Senior advisor to</p><ul class="adv"><li><img src="img/logos/bcg.svg" alt="BCG" class="l-bcg"></li><li><img src="img/logos/amadeus.svg" alt="Amadeus" class="l-ama"></li><li><img src="img/logos/exolum.svg" alt="Exolum" class="l-exo"></li><li><img src="img/logos/adb.svg" alt="ADB Safegate" class="l-adb"></li></ul></div></div>
+<div class="strip"><div class="wrap adv-row"><p class="adv-l">Senior advisor to</p><ul class="adv"><li><img src="img/logos/bcg.svg" alt="BCG" class="l-bcg"></li><li><img src="img/logos/amadeus.svg" alt="Amadeus" class="l-ama"></li><li><img src="img/logos/exolum.svg" alt="Exolum" class="l-exo"></li><li><img src="img/logos/adb.svg" alt="ADB Safegate" class="l-adb"></li><li><img src="img/logos/gallagher.svg" alt="Gallagher" class="l-gal"></li></ul></div></div>
 
 <section id="results"><div class="wrap">
 <p class="eye">Track record</p>
@@ -923,7 +934,7 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 <li><img src="img/logos/bcg.svg" alt="BCG" class="l-bcg"><span class="tag">Senior advisor</span><p>Transport, cities and infrastructure projects.</p></li>
 <li><img src="img/logos/amadeus.svg" alt="Amadeus" class="l-ama"><span class="tag">Senior advisor</span><p>Airports and the full travel journey.</p></li>
 <li><img src="img/logos/exolum.svg" alt="Exolum" class="l-exo"><span class="tag">Senior advisor</span><p>Fuel infrastructure for aviation.</p></li>
-<li><span class="wm-g" role="img" aria-label="Gallagher">Gallagher</span><span class="tag">Senior advisor</span><p>Insurance, risk and resilience for aviation.</p></li>
+<li><img src="img/logos/gallagher.svg" alt="Gallagher" class="l-gal"><span class="tag">Senior advisor</span><p>Insurance, risk and resilience for aviation.</p></li>
 </ul>
 <h3 class="bsub">Boards &amp; advisory boards</h3>
 <ul class="blist">
