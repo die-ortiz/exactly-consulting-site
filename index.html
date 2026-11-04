@@ -838,6 +838,12 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 .bprev li::before{content:"";position:absolute;left:-28px;top:20px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--amber)}
 .bprev li{padding:14px 16px}
 }
+
+/* v9: logos en cargos anteriores */
+.bprev li{gap:14px;justify-content:space-between}
+.bprev .pl{display:block;width:auto;max-width:190px;height:34px;object-fit:contain;object-position:left center}
+.bprev .pl-atag{height:40px}.bprev .pl-her{height:34px}.bprev .pl-hon{height:32px}
+@media(max-width:560px){.bprev li{flex-direction:row;align-items:center}.bprev .pl{max-width:60%;height:28px}.bprev .pl-atag{height:34px}}
 </style></head>
 <body>
 <div class="loader" id="loader" aria-hidden="true"><div class="lw">Exactly <i>Consulting</i><span class="lbar"></span></div></div>
@@ -963,7 +969,7 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 <ul class="blist">
 <li><a href="https://airlinkflight.org/" target="_blank" rel="noopener"><span class="bn"><img src="img/logos/airlink.png" alt="Airlink" class="bl bl-airlink"></span><span class="bd">Supporting communities in crisis</span><span class="by">2026 – present</span><span class="ar" aria-hidden="true">↗</span></a></li><li><a href="https://www.itaerea.com/" target="_blank" rel="noopener"><span class="bn"><img src="img/logos/itaerea.png" alt="ITAerea" class="bl bl-itaerea"></span><span class="bd">Aeronautical business school</span><span class="by">2025 – present</span><span class="ar" aria-hidden="true">↗</span></a></li><li><a href="https://www.cirium.com/" target="_blank" rel="noopener"><span class="bn"><img src="img/logos/cirium.png" alt="Cirium" class="bl bl-cirium"></span><span class="bd">Aviation analytics</span><span class="by">2019 – present</span><span class="ar" aria-hidden="true">↗</span></a></li>
 </ul>
-<div class="bprev"><span>Previous</span><ul><li><b>Honeywell Building Technologies</b><em>2021 – 2025</em></li><li><b>ATAG, Air Transport Action Group</b><em>2020 – 2024</em></li><li><b>Hermes Air Transport Organisation</b><em>2019 – 2021</em></li></ul></div>
+<div class="bprev"><span>Previous</span><ul><li><img src="img/logos/honeywell.svg" alt="Honeywell Building Technologies" class="pl pl-hon"><em>2021 – 2025</em></li><li><img src="img/logos/atag.svg" alt="ATAG, Air Transport Action Group" class="pl pl-atag"><em>2020 – 2024</em></li><li><img src="img/logos/hermes.png" alt="Hermes Air Transport Organisation" class="pl pl-her"><em>2019 – 2021</em></li></ul></div>
 <h3 class="bsub">Education</h3>
 <div class="edu-grid">
 <figure class="edu-feat"><img loading="lazy" src="img/p025.jpg" alt="Receiving the International Board Certificate at Swiss Board School" width="1500" height="1000"><figcaption><span class="dg">International Board Certificate</span><b>Swiss Board School</b><span class="ct">Switzerland</span></figcaption></figure>
