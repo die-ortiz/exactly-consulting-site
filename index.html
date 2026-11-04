@@ -793,6 +793,10 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 .chapters.enter{opacity:0;transform:translateX(56px)}
 .chapters.enter.go{opacity:1;transform:none;transition:opacity .6s ease .35s,transform .75s cubic-bezier(.2,.7,.2,1) .35s}
 }
+
+/* v9: avatar del formulario con aire sobre la cabeza */
+.who .av{position:relative;display:block;overflow:hidden;object-fit:initial}
+.who .av img{position:absolute;width:150%;max-width:none;height:auto;left:-25%;top:12%}
 </style></head>
 <body>
 <div class="loader" id="loader" aria-hidden="true"><div class="lw">Exactly <i>Consulting</i><span class="lbar"></span></div></div>
@@ -989,7 +993,7 @@ footer a.lgl{color:var(--mist);text-decoration:none;border-bottom:1px solid tran
 </ul>
 </div>
 <form class="form" id="cform" action="mailto:contact@exactlyconsulting.org" method="post" enctype="text/plain" novalidate data-endpoint="">
-<div class="who"><img class="av" src="img/luis-felipe-cutout.webp" alt="" width="56" height="56"><div><b>Luis Felipe de Oliveira</b><span>Executive Director &amp; CEO</span></div></div>
+<div class="who"><span class="av" aria-hidden="true"><img src="img/luis-felipe-cutout.webp" alt="" width="999" height="1131"></span><div><b>Luis Felipe de Oliveira</b><span>Executive Director &amp; CEO</span></div></div>
 <div class="f"><input id="f-name" name="name" type="text" placeholder=" " autocomplete="name" required><label for="f-name">Your name</label><small class="err" aria-live="polite"></small></div>
 <div class="f"><input id="f-mail" name="email" type="email" placeholder=" " autocomplete="email" required><label for="f-mail">Work email</label><small class="err" aria-live="polite"></small></div>
 <div class="f"><input id="f-org" name="organization" type="text" placeholder=" " autocomplete="organization"><label for="f-org">Organisation (optional)</label></div>
